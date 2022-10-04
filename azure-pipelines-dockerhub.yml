@@ -20,6 +20,13 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+   - script: |
+          echo 'Running in workspace $(Pipeline.Workspace)'    
+          echo 'Build.SourceBranchName: $(branch)'
+          echo 'Build.SourceVersion: $(tag)'
+          echo 'Build.SourcesDirectory: $(Build.SourcesDirectory)'
+          echo 'Build.ArtifactStagingDirectory: $(build.artifactstagingdirectory)'
+          echo 'Tags: $(tags)'          
     - task: Docker@2
       displayName: Build an image
       inputs:
