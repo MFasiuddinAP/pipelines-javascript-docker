@@ -3,11 +3,6 @@ parameters:
   buildEnv: 'none'
   dockerRegistry: 'none'
 
-variables:
-
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
-
 stages:
   - stage: Build
     displayName: Build stage
@@ -15,7 +10,7 @@ stages:
       - job: Build
         displayName: Build
         pool:
-          vmImage: $(vmImageName)
+          vmImage: 'ubuntu-latest'
         container:
           image: mfasiap/buildagentbaseimage:a852b58
 
