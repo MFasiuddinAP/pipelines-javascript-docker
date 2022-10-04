@@ -1,0 +1,12 @@
+trigger:
+- qa
+
+resources:
+- repo: self
+
+stages:
+- template: templates/build-new.yml
+  parameters:
+    dockerImage: mfasiap/nasptertune-qa
+    buildEnv: QA
+    dockerRegistry: $(dockerRegistry)
